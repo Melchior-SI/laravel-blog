@@ -6,11 +6,9 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <a href="{{ route("admin.user.index") }}" class="col-1 btn-lg"><i class="fas fa-arrow-left"></i></a>
-            </div>
-            <div class="row mb-2">
                 <div class="col-sm-6 d-flex align-items-center">
-                    <h1 class="m-0 mr-2">{{ $user->title }}</h1>
+                    <a href="{{ route("admin.user.index") }}" class="col-1 btn-lg"><i class="fas fa-arrow-left"></i></a>
+                    <h1 class="m-0 mr-2">{{ $user->name }}</h1>
                     <a href="{{ route("admin.user.edit", $user->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
                     <form action="{{ route("admin.user.delete", $user->id) }}" method="POST">
                         @csrf
@@ -22,8 +20,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
+                        <li class="breadcrumb-item"><a href="{{ route("admin.main.index") }}">Главная</a></li>
+                        <li class="breadcrumb-item active">Пользователи</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -45,8 +43,8 @@
                                         <td>{{ $user->id }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Имя</td>
-                                        <td>{{ $user->name }}</td>
+                                        <td>Почта</td>
+                                        <td>{{ $user->email }}</td>
                                     </tr>
                                 </tbody>
                             </table>

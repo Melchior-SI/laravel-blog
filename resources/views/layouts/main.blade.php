@@ -40,7 +40,10 @@
                     </li>
                     <li class="nav-item">
                         @auth()
-                            <a class="nav-link" href="#">Выйти</a>
+                            <form class="" action="{{ route("logout") }}" method="POST">
+                                @csrf
+                                <input class="btn bg-transparent" type="submit" value="Выйти">
+                            </form>
                         @endauth
                     </li>
                 </ul>

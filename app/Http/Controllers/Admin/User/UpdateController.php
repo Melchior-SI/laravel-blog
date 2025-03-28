@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\UpdateRequest;
+use App\Http\Requests\Admin\User\UpdateRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class UpdateController extends Controller
 {

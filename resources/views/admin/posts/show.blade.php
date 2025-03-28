@@ -6,10 +6,8 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <a href="{{ route("admin.post.index") }}" class="col-1 btn-lg"><i class="fas fa-arrow-left"></i></a>
-            </div>
-            <div class="row mb-2">
                 <div class="col-sm-6 d-flex align-items-center">
+                    <a href="{{ route("admin.post.index") }}" class="col-1 btn-lg"><i class="fas fa-arrow-left"></i></a>
                     <h1 class="m-0 mr-2">{{ $post->title }}</h1>
                     <a href="{{ route("admin.post.edit", $post->id) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
                     <form action="{{ route("admin.post.delete", $post->id) }}" method="POST">

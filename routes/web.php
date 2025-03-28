@@ -50,7 +50,7 @@ Route::group(["as" => "main."], function () {
     Route::get('/', MainIndex::class)->name('index');
 });
 
-Route::group(["as" => "admin.", "prefix" => "admin"], function () {
+Route::group(["as" => "admin.", "prefix" => "admin", "middleware" => ["auth", "admin", "verified"]], function () {
     Route::group(["as" => "main."], function () {
         Route::get('/', AdminIndex::class)->name('index');
     });
@@ -96,5 +96,5 @@ Route::group(["as" => "admin.", "prefix" => "admin"], function () {
     });
 });
 
-Auth::routes();
+Auth::routes(["verify" => true]);
 
