@@ -38,7 +38,7 @@ class PostService
     public function update($data, $post) {
         try {
             DB::beginTransaction();
-            if (isset($data['preview_image'])) {
+            if (isset($data['tag_ids'])) {
                 $tagIds = $data['tag_ids'];
                 unset($data['tag_ids']);
             }
@@ -48,18 +48,19 @@ class PostService
             if (isset($data['banner_image'])) {
                 $data['banner_image'] = Storage::disk("public")->put("/images", $data['banner_image']);
             }
-            dd($data);
+
             $post->update($data);
             if (isset($tagIds)) {
                 $post->tags()->sync($tagIds);
             }
-            DB::commit();
 
+            DB::commit();
+            return $post;
         } catch (\Exception $exception) {
             DB::rollBack();
             Log::error($exception->getMessage());
             abort(404);
         }
-        return $post;
+
     }
 }

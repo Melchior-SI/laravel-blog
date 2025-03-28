@@ -31,13 +31,13 @@
                         @method("PATCH")
                         <div class="form-group w-25">
                             <input type="text" class="form-control" name="title" placeholder="Название поста"
-                                   value="{{ old("title")}}">
+                                   value="{{ old("title", $post->title) }}">
                             @error("title")
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group w-75">
-                            <textarea id="summernote" name="content">{{ old("content") }}</textarea>
+                            <textarea id="summernote" name="content">{{ old("content", $post->content) }}</textarea>
                             @error("content")
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
